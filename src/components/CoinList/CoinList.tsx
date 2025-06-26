@@ -19,7 +19,7 @@ const CoinList = () => {
     // Set up polling every 30s
     const interval = setInterval(() => {
       dispatch(fetchCoins());
-    }, 30 * 1000);
+    }, 10 * 1000);
 
     // Clear interval on unmount
     return () => clearInterval(interval);

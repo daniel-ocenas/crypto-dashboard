@@ -1,4 +1,4 @@
-export interface CoinStore {
+export interface Coin {
   id: string;
   name: string;
   symbol: string;
@@ -10,7 +10,7 @@ export interface CoinStore {
 }
 
 export interface CoinsState {
-  coins: CoinStore[];
+  coins: Coin[];
   loading: boolean;
   error: string | null;
   searchQuery?: string;

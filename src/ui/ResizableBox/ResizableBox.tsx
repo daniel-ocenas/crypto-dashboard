@@ -3,16 +3,16 @@ import { Resizable } from 're-resizable';
 import React, { PropsWithChildren } from 'react'; // Import the necessary hooks from React
 
 interface ResizableBox extends PropsWithChildren {
-  width?: number;
-  height?: number;
+  initialWidth?: number;
+  initialHeight?: number;
 }
 
-const ResizableBox = ({ children }: ResizableBox) => {
+const ResizableBox = ({ initialWidth = 320, initialHeight = 400, children }: ResizableBox) => {
   return (
     <Resizable
       defaultSize={{
-        width: 320,
-        height: 420,
+        width: initialWidth,
+        height: initialHeight,
       }}
       minWidth={300}
       minHeight={400}

@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { RootState } from '@/app/AppStore';
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { fetchCoins, searchCoins } from './Coin.api';
 import { CoinsState } from './Coin.types';
 
@@ -46,3 +47,15 @@ const coinsSlice = createSlice({
 });
 
 export default coinsSlice.reducer;
+
+// SELECTORS
+export const getCoinCurrentPrice = createSelector(
+  (state: RootState) => state.coins.coins,
+  (_state: RootState, id?: string) => id,
+  (coins, id) => {
+    if (!id) {
+      return undefined;
+    }
+    return coins.find((coin) => coin.id === id)?.current_price;
+  },
+);
